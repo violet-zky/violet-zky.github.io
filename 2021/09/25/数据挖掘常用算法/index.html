@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>数据挖掘常用算法 - 小凯のHome</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="小凯のHome"><meta name="msapplication-TileImage" content="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="小凯のHome"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="这是对文章的摘要内容"><meta property="og:type" content="blog"><meta property="og:title" content="数据挖掘常用算法"><meta property="og:url" content="https://violet-zky.github.io/"><meta property="og:site_name" content="小凯のHome"><meta property="og:description" content="这是对文章的摘要内容"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="c:/Users/zky666/AppData/Roaming/Typora/typora-user-images/image-20210724104847224.png"><meta property="article:published_time" content="2021-09-25T00:46:04.000Z"><meta property="article:modified_time" content="2021-09-26T10:00:08.208Z"><meta property="article:author" content="xkxk"><meta property="article:tag" content="数据挖掘"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="C:\Users\zky666\AppData\Roaming\Typora\typora-user-images\image-20210724104847224.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://violet-zky.github.io/2021/09/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/"},"headline":"小凯のHome","image":["https://violet-zky.github.io/img/og_image.png"],"datePublished":"2021-09-25T00:46:04.000Z","dateModified":"2021-09-26T10:00:08.208Z","author":{"@type":"Person","name":"xkxk"},"description":"这是对文章的摘要内容"}</script><link rel="canonical" href="https://violet-zky.github.io/2021/09/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/"><link rel="icon" href="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/favicon.png"><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><link rel="stylesheet" href="/live2d/waifu.css"><script type="text/javascript" async src="/live2d/autoload.js"></script><meta name="generator" content="Hexo 5.4.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">小凯のHome</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/messages">留言</a><a class="navbar-item" href="/music">影音</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Join Gitter" href="https://gitter.im/hexo-theme-amazing/community"><i class="fab fa-gitter"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2021-09-25  <a class="commentCountImg" href="/2021/09/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/#comment-container"><span class="display-none-class">2838cff2676aadca5a6728841ccbd456</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="2838cff2676aadca5a6728841ccbd456">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>38 分钟  <i class="fas fa-pencil-alt"> </i>5.7 k</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">数据挖掘常用算法</h1><div class="content"><h1 id="一、数据特征分析与预处理"><a href="#一、数据特征分析与预处理" class="headerlink" title="一、数据特征分析与预处理"></a>一、数据特征分析与预处理</h1><h2 id="1-1-数据类型"><a href="#1-1-数据类型" class="headerlink" title="1.1 数据类型"></a>1.1 数据类型</h2><h3 id="1-1-1-数据集类型"><a href="#1-1-1-数据集类型" class="headerlink" title="1.1.1 数据集类型"></a>1.1.1 数据集类型</h3><ol>
+<li><p>结构化数据</p>
+<p>大部分的应用将数据存储在关系数据库中，每条记录包含若干个属性。</p>
+</li>
+<li><p>半结构化数据</p>
+<p>半结构化数据也具有一定的结构，但没有像关系型数据库中那样严格的定义，也被称为‘自描述’。半结构化数据使用标签来标识数据中的每个元素。常见的半结构化数据主要有XML文档和JSON数据。</p>
+</li>
+<li><p>非结构化数据</p>
+<p>非结构化数据没有预定义的数据模型</p>
+</li>
+</ol>
+<h3 id="1-1-2-数据属性的类型"><a href="#1-1-2-数据属性的类型" class="headerlink" title="1.1.2 数据属性的类型"></a>1.1.2 数据属性的类型</h3><p>常见的属性类型</p>
+<ol>
+<li><p>标称属性(Norminal Attribute)</p>
+<p>标称属性类似于标签，其中的数学或符号只是用来对物体进行识别和分类，取值往往是枚举类型</p>
+<p>分类属性(Categorical)</p>
+<p>统计学：定义变量</p>
+<p>二元属性(布尔属性)：非对称，如心脏病检测结果</p>
+<p>​                                        对称，如性别属性</p>
+</li>
+<li><p>序数属性(Ordinal Attribute)</p>
+<p>有顺序关系，不仅包含了标称属性的全部特征，还能反应对象之间的等级和顺序</p>
+<p>如：优、良、中、差</p>
+<p>统计学：定序变量</p>
+</li>
+<li><p>数值属性(Numeric Attribute)</p>
+<ul>
+<li><p>区间标度(Interval Scaled)属性</p>
+<p>用相等的单位尺度度量，属性的值有序，可以为正、零或负。相等的数字距离代表所测量的变量相等的数量差值。定距变量（统计学）</p>
+<p>如：不能说考90分的同学知识的掌握是考45分同学的2倍：不能说20度比10度高2倍</p>
+</li>
+<li><p>比率标度属性</p>
+<p>如果数值属性存在固定零点，那么属性值之间的比率关系就有意义了，例如：开氏温度、年龄、长度、重量</p>
+<p>因存在绝对零点，因此可以进行比率计算，即加减乘除运算。</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>标称属性、二元属性、序数属性的取值是定性的，不能反应不同等级的差异程度，不能进行加减乘数等数学运算。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>标称属性</th>
+<th>序数属性</th>
+<th>区间标度属性</th>
+<th>比率标度属性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>频数统计</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>众数</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>顺序关系</td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>中位数</td>
+<td></td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>平均数</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>量化差异</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>加减运算</td>
+<td></td>
+<td></td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>乘除运算</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+</tr>
+<tr>
+<td>定义”真正零度”</td>
+<td></td>
+<td></td>
+<td></td>
+<td>√</td>
+</tr>
+</tbody></table>
+<h2 id="1-2-数据的描述性特征"><a href="#1-2-数据的描述性特征" class="headerlink" title="1.2 数据的描述性特征"></a>1.2 数据的描述性特征</h2><h3 id="1-2-1-描述数据集集中趋势的度量"><a href="#1-2-1-描述数据集集中趋势的度量" class="headerlink" title="1.2.1 描述数据集集中趋势的度量"></a>1.2.1 描述数据集集中趋势的度量</h3><ol>
+<li><p>算数平均数(Arithmetic Mean)</p>
+<p>缺点：易受集合中极端值或离群点的影响</p>
+</li>
+<li><p>中位数(Median)</p>
+<p>典型的位置平均数，当数据集合的分布呈现偏斜的时候，采用中位数作为集中趋势的度量更加有效</p>
+</li>
+<li><p>众数(Mode)</p>
+<p>数据呈现多峰分布的时候，中位数也不能有效的描述集中趋势，当数据量较大并且集中趋势比较明显的时候，众数更适合作为描述数据代表性水平的度量</p>
+</li>
+<li><p>k百分位数(Percentile)</p>
+<p>将一组数据从小到大排序，并计算相应的累积百分比，处于k%位置的值称为第k百分位数，用X<sub>k%</sub>表示</p>
+<p>若X<sub>k%</sub>位于第i个与第j个数之间时(i&lt;j)，可以采用几种插值的方法来计算X<sub>k%</sub>：线性插值(Linear)、下界(Lower)、上界(Higher)、中点(Midpoint)和最近邻(Nearest)</p>
+<ul>
+<li>例子：[-35, 10, 20, 30, 40, 50, 60, 100]求25百分位，即X<sub>25%</sub></li>
+<li>确定X<sub>k%</sub>方法：<ul>
+<li>(n + 1) x k%</li>
+<li>1 + (n - 1) x k%</li>
+</ul>
+</li>
+<li>1+(8-1)*25%=2.75介于第2个数与第3个数之间</li>
+<li>线性插值：X<sub>25%</sub>=10+(20-10)*0.75=17.5</li>
+<li>下界、上界、中点、最近邻分别为10 20 15 20</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">X = np.array([-<span class="number">35</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">60</span>, <span class="number">100</span>])</span><br><span class="line">k = <span class="number">25</span></span><br><span class="line">Xk = np.percentile(X, k, interpolation=<span class="string">&#x27;linear&#x27;</span>)</span><br><span class="line">Nx = X.shape[<span class="number">0</span>]</span><br><span class="line">indices = <span class="number">1</span> + (Nx - <span class="number">1</span>) * k / <span class="number">100.0</span></span><br><span class="line"><span class="built_in">print</span>(incides, Xk)</span><br></pre></td></tr></table></figure></li>
+<li><p>四分位数(Quartile)</p>
+<p>四分位数是一种特殊的百分位数</p>
+<ol>
+<li>第一四分位数Q<sub>1</sub>，又称“较小四分位数”，即25百分位数</li>
+<li>第二四分位数Q<sub>2</sub>，就是中位数</li>
+<li>第一四分位数Q<sub>3</sub>，又称“较大四分位数”，即75百分位数</li>
+</ol>
+<p>四分位数是比较常用的分析数据分布趋势的度量，很多数据可视化方法可以用到。</p>
+</li>
+</ol>
+<h3 id="1-2-2-描述数据离中趋势的度量"><a href="#1-2-2-描述数据离中趋势的度量" class="headerlink" title="1.2.2 描述数据离中趋势的度量"></a>1.2.2 描述数据离中趋势的度量</h3><ol>
+<li><p>极差(Range)</p>
+<p>最大值与最小值之差，又称范围误差或全距，R</p>
+</li>
+<li><p>四分位数极差(InterQuartile Range, IQR)</p>
+<p>==IQR = Q<sub>3</sub> - Q<sub>1</sub>==</p>
+<p>反映了数据集合中间50%数据的变动范围</p>
+<p>超过Q<sub>3</sub> +IQR或者低于Q<sub>1</sub>-IQR可能是离群点</p>
+<p>注意：如果数据不服从正态分布，这种方法受数据偏斜程度的影响较大</p>
+</li>
+<li><p>平均绝对离差</p>
+<p>计算数据集合中各个数值与平均的距离(绝对值)总和，然后取其平均数</p>
+<p>因存在绝对值，不常用</p>
+</li>
+<li><p>方差和标准差(Variance and Standard Deviation)<br>不足：大小与数据本身大小密切相关，且带有量纲，不同量纲的数据集合或者刻画对象的不同属性之间难以比较离散程度的大小</p>
+</li>
+<li><p>离散系数(Coefficient of Variation)</p>
+<p>离散系数称为变异系数，样本变异系数是样本标准差与样本平均数之比:<br>$$<br>C_v = \frac{S}{\bar{x}}<br>$$<br>注意：离散系数只对由比率标度属性计算出来的数值有意义</p>
+</li>
+</ol>
+<h3 id="1-2-3-数据分布形态的度量"><a href="#1-2-3-数据分布形态的度量" class="headerlink" title="1.2.3 数据分布形态的度量"></a>1.2.3 数据分布形态的度量</h3><ol>
+<li><p>数据的偏态分布及度量</p>
+<p>众数在均值左边，大的极端值在右，右向偏态，正偏态</p>
+<p>众数在均值右边，大的极端值在左，左向偏态，负偏态</p>
+<ul>
+<li><p>偏态系数 g<sub>1</sub></p>
+</li>
+<li><p>样本偏态系数 SK</p>
+<ul>
+<li>SK &gt; 0，正偏态</li>
+<li>SK &lt; 0，负偏态</li>
+<li>|SK| &gt; 1，数据偏态程度很高</li>
+<li>0.5 &lt;= |SK| &lt;= 1，偏态程度中等</li>
+<li>|SK| &lt; 0.5，认为数据的分布对称</li>
+<li>SK越接近0，分布的偏斜程度越小</li>
+</ul>
+</li>
+<li><p>皮尔逊偏态系数(Pearson’s Coefficient of Skewness)<br>$$<br>Sk_1 = \frac{\bar{X}-M_0}{s}<br>$$<br>或<br>$$<br>Sk_2 = \frac{3(\bar{X} - M_d)}{s}<br>$$<br>其中，$\bar{X}$是平均数，$M_0$是众数，$M_d$是中位数，$s$是样本标准差</p>
+</li>
+</ul>
+</li>
+<li><p>数据峰度及度量</p>
+<p><strong>峰度</strong>用于衡量数据分布的平坦度(Flatness)，它以标准正态分布作为比较的基准。峰度的度量使用峰度系数(Kurtosis) K<br>$$<br>K = \frac{\frac{1}{n}\sum_{i=1}^{n}(x_i-\bar{x})^4}{(\frac{1}{n}\sum_{i=1}^{n}(x_i-\bar{x})^2)^2} - 3<br>$$<br>上述定义被称为超值峰度(Excess Kurtosis)，减3是为了让正态分布的峰度值为0.</p>
+<ul>
+<li>$K\approx0$，称为常峰态(Mesokurtic)，接近与正态分布</li>
+<li>$K&lt;0$，称为低峰态(Platykurtic)</li>
+<li>$K&gt;0$，称为高峰态(Leptokurtic)</li>
+</ul>
+</li>
+<li><p>数据偏度和峰值的作用</p>
+</li>
+</ol>
+<h4 id="1-2-4-数据分布特征的可视化、"><a href="#1-2-4-数据分布特征的可视化、" class="headerlink" title="1.2.4 数据分布特征的可视化、"></a>1.2.4 数据分布特征的可视化、</h4><ol>
+<li><p>箱型图</p>
+<p>五数概括法：最小值、Q<del>1</del>、中位数、Q<del>3</del>、最大值</p>
+</li>
+<li><p>数据偏度和峰度计算与可视化</p>
+</li>
+</ol>
+<h2 id="1-3-数据的相关分析"><a href="#1-3-数据的相关分析" class="headerlink" title="1.3 数据的相关分析"></a>1.3 数据的相关分析</h2><h3 id="1-3-1-相关分析"><a href="#1-3-1-相关分析" class="headerlink" title="1.3.1 相关分析"></a>1.3.1 相关分析</h3><ol>
+<li><p>散点图</p>
+</li>
+<li><p>相关系数</p>
+<p>协方差：$cov(X,Y)=\frac{\sum_{i=1}^n(X_i-\bar{x})(Y_i-\bar{Y})}{n-1}$</p>
+<p>协方差的正负表示两个属性相关性的方向，绝对值代表它们之间关系的强弱</p>
+<p>不足：协方差的大小与属性的取值范围、量纲都有关系，构成不同的属性对之间的协方差难以进行横向比较。因此将协方差归一化</p>
+<p><strong>样本相关系数</strong>：$r(X,Y)=\frac{cov(X,Y)}{S_xS_y}$</p>
+<p>S为样本标准差</p>
+<p>相关系数的取值：$-1\le{r}\le{1}$</p>
+<ul>
+<li>若$0&lt;{r}\le{1}$，表明X和Y之间存在正线性相关关系</li>
+<li>若$-1\le{r}&lt;{0}$，表明X和Y之间存在负线性相关关系</li>
+<li>若$r=0$，表明二者之间不存在线性相关关系，但并不排除二者之间存在非线性相关性。</li>
+</ul>
+</li>
+</ol>
+<h3 id="1-3-2-卡方-X-2-检验"><a href="#1-3-2-卡方-X-2-检验" class="headerlink" title="1.3.2 卡方$(X^2)$检验"></a>1.3.2 卡方$(X^2)$检验</h3><p>相关系数可以用来分析两个数值型属性之间的相关性</p>
+<p>两个标称属性(分类属性)之间的独立性检验可以使用卡方检验</p>
+<p>独立性检验是对两个属性的不同分类的计数进行分析，以判断它们是相互关联，还是彼此独立。</p>
+<p>一般是首先建立一个假设，即这两个属性彼此独立而无关联，然后根据这个假设，由实测次数推算出理论次数，再与相应的实测次数比较，求出$X^2$值，最后检验两个属性是否确实彼此独立，从而决定拒绝或接受彼此独立而无关联的假设。</p>
+<p><strong>卡方统计量</strong>：$X^2 = \sum\frac{(Observed - Expected)^2}{Expected}$</p>
+<p>$X^2$是统计样本的实际观测值与理论推算值之间的偏离程度。</p>
+<p>理论值与实际值之间偏差越大，$X^2$值越大，就越不符合</p>
+<p>偏差越小，$X^2$值越大，就越趋于符合</p>
+<p>若两值完全相等，$X ^ 2$值为0，表示完全符合</p>
+<p><strong>自由度</strong>：$dof = (r-1)(c-1)$其中r和c分别为两个属性各自分类值的个数</p>
+<h2 id="1-4-数据预处理"><a href="#1-4-数据预处理" class="headerlink" title="1.4 数据预处理"></a>1.4 数据预处理</h2><h3 id="1-4-1-数据变换、离散化与编码"><a href="#1-4-1-数据变换、离散化与编码" class="headerlink" title="1.4.1 数据变换、离散化与编码"></a>1.4.1 数据变换、离散化与编码</h3><ol>
+<li><p>零均值化(Mean Removal)</p>
+<p>给定一个数值型数据集合，将每一个属性的数据都减去这个属性的均值后，形成一个新数据集合，变换后各属性的数据之和与均值都为零，多个属性经过零均值化变换后，都以零为均值分布，各属性的方差不发生变化，各属性的协方差也不发生变化。</p>
+<p>应用：对信号数据零均值化，可以消除直流分量的干扰</p>
+<p>变换过程：如果将多个属性构成的数据看成是空间中的点，那么经过零均值化的数据就是在空间上进行了平移，分布形状没有发生改变。</p>
+</li>
+<li><p>Z分数变换</p>
+<p>标准分数(Standard Score)也叫z分数(z-score)，用公式表示为：<br>$$<br>z = \frac{x - \bar{x}}{s}<br>$$<br>其中$x$为原始数据，$\bar{x}$为样本均值，$s$为样本标准差，变换后数据的均值为0，方差为1</p>
+<p>z值表示原始数据和样本均值之间的距离，以标准差为单位进行计算</p>
+<p>应用：当数据的各个属性值范围差异较大，或者挖掘算法假设数据服从正态分布的情况下，z分数变换很有用，如线性回归、逻辑回归以及线性判别分析等算法。</p>
+<p>缺点：假如原始数据没有呈高斯分布，标准化的数据分布效果并不好</p>
+</li>
+<li><p>最大——最小规范化</p>
+<p>最大——最小规范化(Min-MAx Normalization)又称离差标准化，是对原始数据的线性转化，将数据按比例缩放到一个特定区间<br>$$<br>v’ = min’ + \frac{v - min}{max - min}(max’ - min’)<br>$$<br>当多个属性的数值分布区间相差较大时，使用最小——最大规范化可以将这些属性值变换到同一个区间，这对于属性间的比较以及计算对象之间的距离很重要</p>
+<p><strong>注意：</strong>最小——最大规范化只是对原始数据进行了线性变换，对原始数据经过平移以及缩放操作，方差和均值均会改变，但数据分布形态（直方图）不变。</p>
+</li>
+<li><p>独热编码</p>
+<p>独热编码(One Hot Encoding)又称一位有效编码，用来对标称属性（分类属性）进行编码</p>
+<p>独热编码构成的向量较为稀疏。在实际应用中，多采用CSR等压缩形式存储稀疏矩阵。</p>
+<p>注意：独热编码的引入有时候会带来数据属性(维数)极大扩张的负面影响</p>
+</li>
+</ol>
+<h3 id="1-4-2-数据抽样技术"><a href="#1-4-2-数据抽样技术" class="headerlink" title="1.4.2 数据抽样技术"></a>1.4.2 数据抽样技术</h3><ol>
+<li><p>不放回简单随机抽样</p>
+<p>步骤：</p>
+<ul>
+<li>根据待抽样数据的概率，计算以数组形式表示的累计分布概率cdf，并规范化</li>
+<li>根据还需要抽样的个数，生成[0, 1]的随机数数组x</li>
+<li>将x中的随机数按照cdf值升序找到插入位置，形成索引数组new</li>
+<li>找出new中不重复的索引位置，作为本次抽样的位置索引。</li>
+<li>在概率数组p中，将已经抽样的索引位置置0</li>
+<li>重复上述步骤，直到输出指定数目的样本。</li>
+</ul>
+</li>
+<li><p>水库抽样</p>
+<p>给定一个数据流或者大小未知的数据集合，从中随机抽取k个样本，并使得在数据集合中每个元素被抽中的概率相等</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Init : a reservoir with the size： k</span><br><span class="line"> </span><br><span class="line">for i= k+1 to N</span><br><span class="line"> </span><br><span class="line"><span class="code">    M=random(1, i);</span></span><br><span class="line"><span class="code"> </span></span><br><span class="line"><span class="code">    if( M &lt; k)</span></span><br><span class="line"><span class="code"> </span></span><br><span class="line"><span class="code">     SWAP the Mth value and ith value</span></span><br><span class="line"><span class="code"> </span></span><br><span class="line"><span class="code">end for </span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="1-4-3-主成分分析"><a href="#1-4-3-主成分分析" class="headerlink" title="1.4.3 主成分分析"></a>1.4.3 主成分分析</h3><p>主成分分析 Principal Component Analysis 即PCA</p>
+<p>是用较少数量的、彼此不相关的综合维度(主成分)来代替原来的维度</p>
+<p>如果前m个主成分累计的方差已经占到总体方差的85%以上，那么就可以选择前m个u<del>k</del>(k=1,…,m)作为最终的主成分</p>
+<p>可以通过计算原始数据与主成分得分之间的相关性系数，来分析原属性与各个主成分之间的关系</p>
+<p>步骤：</p>
+<ul>
+<li>将样本数据表示成列向量形式</li>
+<li>将X每一行（维）进行零均值化</li>
+<li>求样本协方差阵$C=\frac{1}{n-1}XX^T$</li>
+<li>计算C的特征值<br>$\lambda_1\ge\lambda_2\ge,…,\ge\lambda_p\ge0$</li>
+<li>计算$F=(UX)^T$</li>
+</ul>
+<h3 id="1-4-4-数据清洗"><a href="#1-4-4-数据清洗" class="headerlink" title="1.4.4 数据清洗"></a>1.4.4 数据清洗</h3><ol>
+<li><p>缺失值填充(Filling in Missing Values)</p>
+<p>数据集中不含缺失值的变量(属性)称为完全变量，数据集中含有缺失值的变量(属性)称为不完全变量</p>
+<p>数据缺失机制：</p>
+<ul>
+<li>完全随机缺失(Missing Completely at Random, MCAR)：数据的缺失与不完全变量以及完全变量都是无关的</li>
+<li>随机缺失(Missing at Random, MCAR)：数据的缺失依赖于完全变量，数据缺失与缺失的数据值无关，但与数据在某些属性上的取值有关</li>
+<li>非随机缺失(Not Missing at Random, NMAR)在不完全变量中数据的缺失依赖于不完全变量的本身，这种缺失是不可忽略的。</li>
+</ul>
+</li>
+<li><p>填充缺失值方法</p>
+<ul>
+<li>均值填充法<ul>
+<li>局部均值填充</li>
+</ul>
+</li>
+<li>回归填充法</li>
+<li>热卡填充法</li>
+</ul>
+</li>
+<li><p>平滑噪声</p>
+<p>Smoothing Noisy Data</p>
+<p>分箱：</p>
+<ul>
+<li>等深分箱法</li>
+<li>等宽分箱法</li>
+<li>最小熵法</li>
+<li>用户自定义区间法</li>
+</ul>
+<p>局部平滑法：</p>
+<ul>
+<li>平均值平滑</li>
+<li>边界值平滑</li>
+<li>中值平滑</li>
+</ul>
+</li>
+</ol>
+<h2 id="1-5-Spark数据预处理功能简介"><a href="#1-5-Spark数据预处理功能简介" class="headerlink" title="1.5 Spark数据预处理功能简介"></a>1.5 Spark数据预处理功能简介</h2><h1 id="二、关联规则挖掘"><a href="#二、关联规则挖掘" class="headerlink" title="二、关联规则挖掘"></a>二、关联规则挖掘</h1><h2 id="2-1-基本概念"><a href="#2-1-基本概念" class="headerlink" title="2.1 基本概念"></a>2.1 基本概念</h2><ul>
+<li>根据频繁项集的元素个数k，将频繁项集称为频繁k-项集</li>
+<li>支持度计数</li>
+<li>设集合T中事务的总数为N，则项集X的<strong>支持度</strong>定义为：</li>
+</ul>
+<p>$$<br>sup(X) = \frac{\sigma(X)}{N}<br>$$</p>
+<ul>
+<li><p>最小支持度(minsup)</p>
+</li>
+<li><p>频繁项集(频繁模式)</p>
+</li>
+<li><p>关联规则</p>
+</li>
+<li><p>支持度  关联规则的支持度与项集支持度相同</p>
+</li>
+<li><p>置信度<br>$$<br>con(A-&gt;B)=\frac{\sigma(AUB)}{\sigma(A)}<br>$$<br>在包含面包的事务中，有75%的人还同时购买了牛奶和奶酪</p>
+</li>
+<li><p>最小置信度</p>
+</li>
+<li><p>强关联规则(Strong Association Rule)同时满足最小支持度和最小置信度</p>
+</li>
+<li><p>过程：首先，通过最小支持度，找到所有的频繁项集；然后，根据最小置信度，过滤频繁项集产生的所有关联规则；最后得到用户可能感兴趣的强关联规则</p>
+</li>
+</ul>
+<h2 id="2-2-基于候选项产生-测试策略的频繁模式挖掘算法"><a href="#2-2-基于候选项产生-测试策略的频繁模式挖掘算法" class="headerlink" title="2.2 基于候选项产生-测试策略的频繁模式挖掘算法"></a>2.2 基于候选项产生-测试策略的频繁模式挖掘算法</h2><h3 id="2-2-1-Apriori算法"><a href="#2-2-1-Apriori算法" class="headerlink" title="2.2.1 Apriori算法"></a>2.2.1 Apriori算法</h3><ul>
+<li>先验原理(Apriori Property)：如果一个项集是频繁的，则它的所有子集一定也是频繁的。</li>
+</ul>
+<h3 id="2-2-2-基于划分的算法"><a href="#2-2-2-基于划分的算法" class="headerlink" title="2.2.2 基于划分的算法"></a>2.2.2 基于划分的算法</h3><p>改进了Apriori算法的性能</p>
+<ol>
+<li><p>将整个事务数据库T的所有记录划分成不相交的子数据库(Partition)：p<del>i</del>。保证每个p<del>i</del>大小合适，能够放到内存的缓冲区中，从而提高访问效率，减少磁盘I/O开销</p>
+</li>
+<li><p>把每个p<del>i</del>单独扫一遍，得到局部(Locally)的频繁项集。局部频繁项集X的支持度计数需要满足：$\sigma_i(X)\ge N_i\times minsup$</p>
+<p>N<del>i</del>和minsup分别是子数据库P<del>i</del>的记录数和全局最小支持度阈值</p>
+</li>
+<li><p>将所有局部频繁项集合并，再扫描一次所有的子数据库，即第二次扫描整体数据库T，从而得到全局频繁项集</p>
+</li>
+</ol>
+<h3 id="2-2-3-事务数据的存储"><a href="#2-2-3-事务数据的存储" class="headerlink" title="2.2.3 事务数据的存储"></a>2.2.3 事务数据的存储</h3><ol>
+<li>二元表示存储</li>
+<li>垂直数据格式</li>
+</ol>
+<p>不足：如果项集的数目很大，比较短的候选项集的数目就会很多，导致tidlist的存储和访问开销增大</p>
+<h2 id="2-3-不需要产生候选集的频繁模式挖掘算法"><a href="#2-3-不需要产生候选集的频繁模式挖掘算法" class="headerlink" title="2.3 不需要产生候选集的频繁模式挖掘算法"></a>2.3 不需要产生候选集的频繁模式挖掘算法</h2><h3 id="FP-Growth算法"><a href="#FP-Growth算法" class="headerlink" title="FP-Growth算法"></a>FP-Growth算法</h3><h3 id="2-4-结合相关性分析的关联规则"><a href="#2-4-结合相关性分析的关联规则" class="headerlink" title="2.4 结合相关性分析的关联规则"></a>2.4 结合相关性分析的关联规则</h3><p>支持度——置信度框架</p>
+<p>不足：两种商品间存在负面影响时不适用</p>
+<p>增加相关性能度量指标</p>
+<p>提升度(Lift)</p>
+<p>度量名称(Kulczynski) Kulc</p>
+<p>度量名称：不平衡因子(Imbalance Ratio ,IR)</p>
+<h2 id="2-5-多层关联规则挖掘算法"><a href="#2-5-多层关联规则挖掘算法" class="headerlink" title="2.5 多层关联规则挖掘算法"></a>2.5 多层关联规则挖掘算法</h2><h1 id="三、分类与回归算法"><a href="#三、分类与回归算法" class="headerlink" title="三、分类与回归算法"></a>三、分类与回归算法</h1><h2 id="3-1-决策树算法"><a href="#3-1-决策树算法" class="headerlink" title="3.1 决策树算法"></a>3.1 决策树算法</h2><p>决策树算法是以实例为基础的归纳学习算法，通常用来形成分类器和预测模型，它可以对未知数据进行分类或预测、数据预处理和数据挖掘等。它通常包括两部分：树的生成和树的剪枝</p>
+<h3 id="3-1-1-决策树简介"><a href="#3-1-1-决策树简介" class="headerlink" title="3.1.1 决策树简介"></a>3.1.1 决策树简介</h3><p>决策树类似于流程图的树结构。经过一批训练集的训练产生一棵决策树，决策树上的每个内部节点表示在一个属性上的测试，内部节点的属性称为测试属性。每个分枝则代表一个测试的输出，每个树叶节点代表类（分类标签），即所要学习划分的类。</p>
+<h3 id="3-1-2-决策树的类型"><a href="#3-1-2-决策树的类型" class="headerlink" title="3.1.2 决策树的类型"></a>3.1.2 决策树的类型</h3><ul>
+<li>分类树：离散变量</li>
+<li>回归树：连续变量</li>
+</ul>
+<p>不同属性：</p>
+<ol>
+<li>决策树内节点的测试属性可以是单变量的，即每个内节点只包含一个属性；也可能是多变量的，例如，多个属性的线性组合，即存在包含多个属性的内节点</li>
+<li>每个内节点分支的数量取决于测试属性值的个数。如果每个内节点只有两个分支则称之为二叉决策树</li>
+<li>分类结果既可能是两类又可能是多类，如果二叉决策树的结果只能有两类则称之为布尔决策树</li>
+</ol>
+<h3 id="3-1-3-决策树的构造过程"><a href="#3-1-3-决策树的构造过程" class="headerlink" title="3.1.3 决策树的构造过程"></a>3.1.3 决策树的构造过程</h3><p>属性的选择策略就是根据不同的标准来做出选择，而选择的依据则与不确定性有关。</p>
+<h3 id="3-1-4-信息论的相关概念"><a href="#3-1-4-信息论的相关概念" class="headerlink" title="3.1.4 信息论的相关概念"></a>3.1.4 信息论的相关概念</h3><ol>
+<li><p>自信息量</p>
+</li>
+<li><p>信息熵</p>
+</li>
+<li><p>条件熵</p>
+</li>
+<li><p>平均互信息量</p>
+</li>
+</ol>
+<h3 id="3-1-5-ID3算法"><a href="#3-1-5-ID3算法" class="headerlink" title="3.1.5 ID3算法"></a>3.1.5 ID3算法</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：训练数据集D</span><br><span class="line">输出：决策树T</span><br><span class="line">1.如果D中元组的分类属性唯一，返回；</span><br><span class="line">2.计算所有非分类属性的信息增益，选择最大的属性A，	为A属性构造中间节点；</span><br><span class="line">3.按照属性A的不同取值，对D进行划分，并构造节点A的	 分支以及子节点；</span><br><span class="line">4.在每个子节点上递归执行ID3算法。</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1-6-信息论在ID3算法中的应用"><a href="#3-1-6-信息论在ID3算法中的应用" class="headerlink" title="3.1.6 信息论在ID3算法中的应用"></a>3.1.6 信息论在ID3算法中的应用</h3><p>决策树学习过程就是使得决策树对数据集划分的不确定程度逐渐减小的过程。</p>
+<h3 id="3-1-7-C4-5算法"><a href="#3-1-7-C4-5算法" class="headerlink" title="3.1.7 C4.5算法"></a>3.1.7 C4.5算法</h3><p>C4.5算法继承了ID3算法的所有优点，并对ID3算法进行了改进和补充。C4.5采用<strong>信息增益率</strong>作为选择分支属性的标准，克服了ID3算法中信息增益偏向选择取值多属性的不足，并能够完成对连续属性离散化的处理</p>
+<h3 id="3-1-8-CART算法"><a href="#3-1-8-CART算法" class="headerlink" title="3.1.8 CART算法"></a>3.1.8 CART算法</h3><p>Classification And Regression Tree</p>
+<p>能够处理连续和离散值类型的属性，递归地构造一棵二叉树</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/e15273/article/details/79648502">https://blog.csdn.net/e15273/article/details/79648502</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/32003259">https://zhuanlan.zhihu.com/p/32003259</a></p>
+<h3 id="3-1-9-过拟合与决策树剪枝"><a href="#3-1-9-过拟合与决策树剪枝" class="headerlink" title="3.1.9 过拟合与决策树剪枝"></a>3.1.9 过拟合与决策树剪枝</h3><h4 id="预剪枝-Pre-Pruning"><a href="#预剪枝-Pre-Pruning" class="headerlink" title="预剪枝(Pre-Pruning)"></a>预剪枝(Pre-Pruning)</h4><p>常见的预剪枝方法：</p>
+<ol>
+<li>定义一个高度，当决策树的高度达到此值时，停止决策树的生长</li>
+<li>定义一个阈值，当到达某节点的训练样本个数小于该值时，停止决策树的生长</li>
+<li>定义一个阈值，如果当前的分支对系统性能的增益小于该值时，停止决策树的生长</li>
+<li>到达某节点的实例具有相同的特征向量，即使实例不属于同一类也停止决策树生长。该方法对于数据冲突问题比较有效。</li>
+</ol>
+<p>问题：</p>
+<ol>
+<li>很难精确地估计何时停止决策树的生长</li>
+<li>预剪枝存在视野效果问题，当前的扩展可能会造成过度拟合训练数据，但更进一步的扩展能够满足要求，也可能准确地拟合训练数据，这将会使得算法过早停止决策树的构造。</li>
+</ol>
+<h4 id="后剪枝-Post-Pruning"><a href="#后剪枝-Post-Pruning" class="headerlink" title="后剪枝(Post-Pruning)"></a>后剪枝(Post-Pruning)</h4><p>首先，构造完整的决策树，允许过度拟合训练数据；然后对那些置信度不够的节点子树用叶节点代替。该叶子的类标号设为子树根节点所对应的子集中占数最多的类别。</p>
+<p>常见的后剪枝方法：</p>
+<ol>
+<li>REP(Reduced Error Pruning)——错误率降低剪枝</li>
+<li>PEP(Pessimistic Error Pruning)——悲观错误剪枝</li>
+<li>CCP(Cost Complexity Pruning)——代价复杂度剪枝</li>
+<li>EBP(Error Based Pruning)——基于错误的剪枝</li>
+</ol>
+<h2 id="3-2-贝叶斯分类器"><a href="#3-2-贝叶斯分类器" class="headerlink" title="3.2 贝叶斯分类器"></a>3.2 贝叶斯分类器</h2><h2 id="3-3-基于实例的分类算法"><a href="#3-3-基于实例的分类算法" class="headerlink" title="3.3 基于实例的分类算法"></a>3.3 基于实例的分类算法</h2><h3 id="3-3-1-KNN分类器"><a href="#3-3-1-KNN分类器" class="headerlink" title="3.3.1 KNN分类器"></a>3.3.1 KNN分类器</h3><p>KNN      K-Nearest Neighbor</p>
+<p>过程：</p>
+<ol>
+<li>计算距离：给定测试实例，计算出测试实例与训练集中每个样本的距离</li>
+<li>寻找近邻：找出与测试实例距离最小的前K个训练样本作为测试实例的K-近邻</li>
+<li>确定类别：将K个最近邻的主要归属类别作为测试实例的确定类别</li>
+</ol>
+</div><div class="article-licensing box"><div class="licensing-title"><p>数据挖掘常用算法</p><p><a href="https://violet-zky.github.io/2021/09/25/数据挖掘常用算法/">https://violet-zky.github.io/2021/09/25/数据挖掘常用算法/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><a href="https://violet-zky.github.io/"><p>xkxk</p></a></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-09-25</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-09-26</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="recommend-area"></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135456.png" alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135550.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/09/21/shell%E7%BC%96%E7%A8%8B/"><span class="level-item">shell编程</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--><div class="card"><div class="card-content"><div class="title is-5">评论</div><div id="comment-container"></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/gitalk/1.6.0/gitalk.css"><script> $.getScript('/js/gitalk.min.js', function () { 
+            var gitalk = new Gitalk({
+            language:'zh-CN',
+            id: '2838cff2676aadca5a6728841ccbd456',
+            repo: 'violet-zky.github.io',
+            owner: 'violet-zky',
+            clientID: '46a9f3481b46ea0129d8',
+            clientSecret: '79c7c9cb847e141757d7864453bcbf89f0655b24',
+            admin: ["violet-zky"],
+            createIssueManually: true,
+            distractionFreeMode: false,
+            perPage: 10,
+            pagerDirection: 'last',
+            proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
+            
+            enableHotKey: true,
+            isLocked: false
+        })
+        gitalk.render('comment-container')});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.png" alt="小凯のHome"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">小凯のHome</p><p class="is-size-6 is-block">尚未执佩剑，转眼即江湖</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>江苏</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">8</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">11</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/violet-zky"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/u/7253852899"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="/2652516133@qq.com"><i class="fa fa-envelope"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
+                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
+                                if(data){
+                                    $('#hitokoto').html("");
+                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
+                                    "<p>"+"来源《"+data.from+"》</p><p>提供者-"+data.creator+"</p>");
+                                }});}
+                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新评论</h3><span class="body_hot_comment">加载中，最新评论有1分钟缓存...</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-09-25T00:46:04.000Z">2021-09-25</time></p><p class="title"><a href="/2021/09/25/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/">数据挖掘常用算法</a></p><p class="categories"><a href="/categories/%E6%99%BA%E8%83%BD%E7%A7%91%E6%8A%80/">智能科技</a> / <a href="/categories/%E6%99%BA%E8%83%BD%E7%A7%91%E6%8A%80/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/">数据开发</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-09-21T02:19:50.000Z">2021-09-21</time></p><p class="title"><a href="/2021/09/21/shell%E7%BC%96%E7%A8%8B/">shell编程</a></p><p class="categories"><a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">编程语言</a> / <a href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/shell/">shell</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-09-07T14:51:18.000Z">2021-09-07</time></p><p class="title"><a href="/2021/09/07/Centos7%E4%B8%AD%E7%9A%84%E5%90%AF%E5%8A%A8MySQL%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">Centos7中的启动MySQL出现问题及解决方案</a></p><p class="categories"><a href="/categories/DBA/">DBA</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-08-14T09:25:17.000Z">2021-08-14</time></p><p class="title"><a href="/2021/08/14/LaTeX%E6%95%99%E7%A8%8B/">LaTeX编程</a></p><p class="categories"><a href="/categories/LaTeX/">LaTeX</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-08-02T13:45:54.000Z">2021-08-02</time></p><p class="title"><a href="/2021/08/02/Ubuntu%E6%AD%BB%E6%9C%BA%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/">Ubuntu死机解决方法汇总</a></p><p class="categories"><a href="/categories/%E8%BD%AC%E8%BD%BD/">转载</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/DBA/"><span class="level-start"><span class="level-item">DBA</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/LaTeX/"><span class="level-start"><span class="level-item">LaTeX</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%99%BA%E8%83%BD%E7%A7%91%E6%8A%80/"><span class="level-start"><span class="level-item">智能科技</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%99%BA%E8%83%BD%E7%A7%91%E6%8A%80/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">数据开发</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">编程语言</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/python/"><span class="level-start"><span class="level-item">python</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/shell/"><span class="level-start"><span class="level-item">shell</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E8%BD%AC%E8%BD%BD/"><span class="level-start"><span class="level-item">转载</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/09/"><span class="level-start"><span class="level-item">九月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/08/"><span class="level-start"><span class="level-item">八月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E6%95%99%E7%A8%8B/"><span class="tag">教程</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="tag">深度学习</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CNN/"><span class="tag">CNN</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LaTeX/"><span class="tag">LaTeX</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MySQL/"><span class="tag">MySQL</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/python/"><span class="tag">python</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shell/"><span class="tag">shell</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"><span class="tag">前馈神经网络</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/"><span class="tag">技巧</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"><span class="tag">数据挖掘</span><span class="tag is-grey-lightest">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">小凯のHome</a><p class="size-small"><span>&copy; 2021 xkxk</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
+            var n = new Date(time);
+            now.setTime(now.getTime() + 250),
+                days = (now - n) / 1e3 / 60 / 60 / 24,
+                dnum = Math.floor(days),
+                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
+                hnum = Math.floor(hours),
+            1 == String(hnum).length && (hnum = "0" + hnum),
+                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+                mnum = Math.floor(minutes),
+            1 == String(mnum).length && (mnum = "0" + mnum),
+                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+                snum = Math.round(seconds),
+            1 == String(snum).length && (snum = "0" + snum),
+                document.getElementById("statistic-times").innerHTML = "❤️本站自 <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> 已运行 <strong>" + dnum + "</strong> 天 <strong>" + hnum + "</strong> 小时 <strong>" + mnum + "</strong> 分 <strong>" + snum + "</strong> 秒！❤️";
+        }var now = new Date();setInterval("createTime('2021/1/6 6:6:6')", 250,"");</script><br></span><div class="size-small"><span>❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临！❤️</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a></p></div><div class="sideMusic"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="/js/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="2364053447" theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting" lrctype="0" list-max-height="400px" fixed="true"></meting-js></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script>$.getScript('/js/comment-issue-data.js',function(){loadIssueData('46a9f3481b46ea0129d8','79c7c9cb847e141757d7864453bcbf89f0655b24','violet-zky','violet-zky.github.io',false);})</script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        function loadMathJax() { //加载mathjax
+            $.getScript("//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML", function () {
+                MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$'], ['\(', '\)']] } });
+                var math = document.getElementsByClassName("entry-content")[0];
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, math]);
+            });
+        };
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(true){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('46a9f3481b46ea0129d8','79c7c9cb847e141757d7864453bcbf89f0655b24','violet-zky','violet-zky.github.io',false);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>
