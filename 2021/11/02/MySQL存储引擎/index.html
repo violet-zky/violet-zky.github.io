@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>MySQL存储引擎 - 小凯のHome</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="小凯のHome"><meta name="msapplication-TileImage" content="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="小凯のHome"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="查看当前数据库支持的存储引擎 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172MariaDB [(none)]&amp;gt; show engines \G**************"><meta property="og:type" content="blog"><meta property="og:title" content="MySQL存储引擎"><meta property="og:url" content="https://violet-zky.github.io/"><meta property="og:site_name" content="小凯のHome"><meta property="og:description" content="查看当前数据库支持的存储引擎 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172MariaDB [(none)]&amp;gt; show engines \G**************"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="c:/Users/zky666/AppData/Roaming/Typora/typora-user-images/image-20210724104847224.png"><meta property="article:published_time" content="2021-11-02T02:15:53.000Z"><meta property="article:modified_time" content="2021-11-02T11:41:45.761Z"><meta property="article:author" content="xkxk"><meta property="article:tag" content="数据库"><meta property="article:tag" content="MySQL"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="C:\Users\zky666\AppData\Roaming\Typora\typora-user-images\image-20210724104847224.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://violet-zky.github.io/2021/11/02/MySQL%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"},"headline":"小凯のHome","image":["https://violet-zky.github.io/img/og_image.png"],"datePublished":"2021-11-02T02:15:53.000Z","dateModified":"2021-11-02T11:41:45.761Z","author":{"@type":"Person","name":"xkxk"},"description":"查看当前数据库支持的存储引擎 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172MariaDB [(none)]&gt; show engines \\G**************"}</script><link rel="canonical" href="https://violet-zky.github.io/2021/11/02/MySQL%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/"><link rel="icon" href="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/favicon.png"><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><link rel="stylesheet" href="/live2d/waifu.css"><script type="text/javascript" async src="/live2d/autoload.js"></script><meta name="generator" content="Hexo 5.4.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">小凯のHome</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/messages">留言</a><a class="navbar-item" href="/music">影音</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Join Gitter" href="https://gitter.im/hexo-theme-amazing/community"><i class="fab fa-gitter"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2021-11-02  <a class="commentCountImg" href="/2021/11/02/MySQL%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/#comment-container"><span class="display-none-class">38b11b4a2db56b779db666e19edfb700</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="38b11b4a2db56b779db666e19edfb700">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>22 分钟  <i class="fas fa-pencil-alt"> </i>3.3 k</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">MySQL存储引擎</h1><div class="content"><p>查看当前数据库支持的存储引擎</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line">MariaDB [(none)]&gt; show engines \G</span><br><span class="line">*************************** 1. row ***************************</span><br><span class="line">      Engine: InnoDB</span><br><span class="line">     Support: DEFAULT</span><br><span class="line">     Comment: Percona-XtraDB, Supports transactions, row-level locking, and foreign keys</span><br><span class="line">Transactions: YES</span><br><span class="line">          XA: YES</span><br><span class="line">  Savepoints: YES</span><br><span class="line">*************************** 2. row ***************************</span><br><span class="line">      Engine: MRG_MYISAM</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: Collection of identical MyISAM tables</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 3. row ***************************</span><br><span class="line">      Engine: MyISAM</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: Non-transactional engine with good performance and small data footprint</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 4. row ***************************</span><br><span class="line">      Engine: BLACKHOLE</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: /dev/null storage engine (anything you write to it disappears)</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 5. row ***************************</span><br><span class="line">      Engine: PERFORMANCE_SCHEMA</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: Performance Schema</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 6. row ***************************</span><br><span class="line">      Engine: CSV</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: Stores tables as CSV files</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 7. row ***************************</span><br><span class="line">      Engine: ARCHIVE</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: gzip-compresses tables for a low storage footprint</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 8. row ***************************</span><br><span class="line">      Engine: MEMORY</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: Hash based, stored in memory, useful for temporary tables</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">*************************** 9. row ***************************</span><br><span class="line">      Engine: FEDERATED</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: Allows to access tables on other MariaDB servers, supports transactions and more</span><br><span class="line">Transactions: YES</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: YES</span><br><span class="line">*************************** 10. row ***************************</span><br><span class="line">      Engine: Aria</span><br><span class="line">     Support: YES</span><br><span class="line">     Comment: Crash-safe tables with MyISAM heritage</span><br><span class="line">Transactions: NO</span><br><span class="line">          XA: NO</span><br><span class="line">  Savepoints: NO</span><br><span class="line">10 rows in set (0.01 sec)</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+<!--more-->
+
+<h2 id="各种存储引擎的特性"><a href="#各种存储引擎的特性" class="headerlink" title="各种存储引擎的特性"></a>各种存储引擎的特性</h2><table>
+<thead>
+<tr>
+<th align="center">特点</th>
+<th align="center">MyISAM</th>
+<th align="center">Memory</th>
+<th align="center">InnoDB</th>
+<th align="center">Archive</th>
+<th align="center">NDB</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">B树索引</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">–</td>
+</tr>
+<tr>
+<td align="center">备份/时间点恢复</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">支持集群</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">聚簇索引</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">–</td>
+</tr>
+<tr>
+<td align="center">数据压缩</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">–</td>
+</tr>
+<tr>
+<td align="center">数据缓存</td>
+<td align="center">-</td>
+<td align="center">N/A</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">数据加密</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">支持外键</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">全文索引</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">–</td>
+</tr>
+<tr>
+<td align="center">地理坐标数据类型</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">地理坐标索引</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">–</td>
+</tr>
+<tr>
+<td align="center">哈希索引</td>
+<td align="center">–</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">索引缓存</td>
+<td align="center">√</td>
+<td align="center">N/A</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">锁粒度</td>
+<td align="center">表级</td>
+<td align="center">表级</td>
+<td align="center">行级</td>
+<td align="center">行级</td>
+<td align="center">行级</td>
+</tr>
+<tr>
+<td align="center">MVCC多版本控制</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">–</td>
+</tr>
+<tr>
+<td align="center">支持复制</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">有限</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">存储限制</td>
+<td align="center">256TB</td>
+<td align="center">RAM</td>
+<td align="center">64TB</td>
+<td align="center">None</td>
+<td align="center">384EB</td>
+</tr>
+<tr>
+<td align="center">T树索引</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">支持事务</td>
+<td align="center">–</td>
+<td align="center">–</td>
+<td align="center">√</td>
+<td align="center">–</td>
+<td align="center">√</td>
+</tr>
+<tr>
+<td align="center">统计信息</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+</tbody></table>
+<h3 id="MyISAM"><a href="#MyISAM" class="headerlink" title="MyISAM"></a>MyISAM</h3><p>5.5版本之前为默认</p>
+<ul>
+<li>每个MyISAM在磁盘上存储成3个文件，文件名与表名相同，扩展名：<ul>
+<li>.frm  存储表定义</li>
+<li>.MYD MYDATE，存储数据</li>
+<li>.MYI  MYINDEX，存储索引</li>
+</ul>
+</li>
+</ul>
+<p>数据文件和索引文件可以放置在不同的目录，平均分布IO，获得更快的速度</p>
+<p>创建表时通过 DATA DIRECTORY 和 INDEX DIRECTORY语句指定，文件路径需要是绝对路径，并且具有访问权限</p>
+<ul>
+<li>修复MyISAM表<ul>
+<li>CHECK TABLE</li>
+<li>REPAIR TABLE</li>
+</ul>
+</li>
+<li>三种存储格式<ul>
+<li>静态（固定长度）表<ul>
+<li>优点：默认，存储迅速、容易缓存，故障易恢复</li>
+<li>缺点：占用空间较多；空格问题：插入记录后面的空格查询时会去掉</li>
+</ul>
+</li>
+<li>动态表<ul>
+<li>记录不是固定长度，占用空间较小</li>
+<li>频繁的更新和删除记录会产生碎片</li>
+<li>定期改善性能<ol>
+<li>OPTIMIZE TABLE</li>
+<li>myisamchk-r</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>压缩表<ul>
+<li>myisampack创建</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="InnoDB"><a href="#InnoDB" class="headerlink" title="InnoDB"></a>InnoDB</h3><p>5.5版本之后默认</p>
+<p>会占用更多的磁盘空间以保存数据和索引</p>
+<ul>
+<li><p>自动增长列</p>
+<ul>
+<li><p>auto-increment</p>
+</li>
+<li><p>ALTER TABLE *** AUTO_INCREMENT=n;</p>
+<ul>
+<li>8.0版本之前数据库重启时这个库会丢失</li>
+<li>8.0之后，自增主键的计数器持久化到了REDO LOG中，每次计数器发生改变，都会将其写入REDO LOG，数据库重启InnoDB根据REDO LOG中的计数器信息来初始化其内存值</li>
+</ul>
+</li>
+<li><p>可以用LAST_INSERT_ID()来查询当前线程最后插入记录使用的值；插入多条则返回第一条记录使用的自动增长值；人为指定自增列的值LAST_INSERT_ID()不会更新</p>
+</li>
+<li><p>对于InnoDB表，自动增长列必须被索引，组合索引也必须是组合索引的第一列；MyISAM表，自动增长列可以是组合索引的其他列</p>
+</li>
+</ul>
+</li>
+<li><p>外键约束</p>
+<ul>
+<li>创建外键时，父表必须有对应的索引，子表在创建外键的时候也会自动创建对应的索引</li>
+<li>在创建索引时，可以指定在删除、更新父表时，对子表进行相应的操作：<ul>
+<li>RESTRICT、NO ACTION：限制在子表有关联记录的情况下父表不能更新</li>
+<li>CASCADE：表示父表在更新或者删除时，更新或者删除子表对应的记录</li>
+<li>SET NULL：表示父表在更新或者删除时，子表的对应字段被SET NULL</li>
+<li>CONSTRAINT fk_city_country FOREIGN KEY (country_id) REFERENCES country (country_id) ON DELETE RESTRICT ON UPDATE CASCADE;</li>
+</ul>
+</li>
+<li>导入多个表的数据时，如果需要忽略表之前的导入的顺序，可以暂时关闭外键约束加快处理的速度<ul>
+<li>SET FOREIGN_KEY_CHECKS = 0 关闭</li>
+<li>SET FOREIGN_KEY_CHECKS = 1 改回原状态</li>
+</ul>
+</li>
+<li>查看外键信息<ul>
+<li>show create table</li>
+<li>show table status</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>主键和索引</p>
+<ul>
+<li>InnoDB的数据文件本身就是以聚簇索引的形式保存的，这个聚簇索引称之为主索引，是InnoDB表的主键</li>
+<li>InnoDB表必须包含主键，没有显示指定主键，InnoDB会自动创建一个长度为6个字节的long类型隐藏字段作为主键</li>
+<li>除主键之外的其他索引叫做辅助索引或者二级索引，二级索引会指向主索引，并通过主索引获取最终数据</li>
+</ul>
+</li>
+<li><p>存储方式</p>
+<ul>
+<li>使用共享表空间存储：创建的表的表结构在.frm，数据和索引在innodb_data_home_dir和innodb_data_file_dir定义的表空间中，可以是多个文件</li>
+<li>使用多表空间存储：这种存储方式创建的表结构仍然保存在.frm中，但每个表的数据和索引单独保存在.idb中。如果是一个分区表，则每个分区对应单独的.idb文件，文件名是“表名+分区名”，可以在创建分区的时候指定每个分区的数据文件的位置</li>
+<li>老表改成多表空间:<ul>
+<li><code>set GLOBAL innodb_file_per_table=1;</code> </li>
+<li><code>ALTER TABLE table_name ENGINE=InnoDB;</code></li>
+</ul>
+</li>
+<li>单表备份与恢复，直接复制.idb和.frm均不行<ul>
+<li>ALTER TABLE table_name DISCADE TABLESPACE;</li>
+<li>ALTER TABLE table_name IMPORT TABLESPACE;</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="MEMORY"><a href="#MEMORY" class="headerlink" title="MEMORY"></a>MEMORY</h3><p>MEMORY是MySQL中一类特殊的存储引擎。它使用存储在内存中的内容来创建表，而且<strong>数据全部放在内存中</strong>。这些特性与前面的两个很不同。</p>
+<p>每个基于MEMORY存储引擎的表实际对应一个磁盘文件。该文件的文件名与表名相同，类型为<em>frm</em>类型。该文件中只存储表的结构。而其数据文件，都是存储在内存中，这样有利于数据的快速处理，提高整个表的效率。值得注意的是，服务器需要有足够的内存来维持MEMORY存储引擎的表的使用。如果不需要了，可以释放内存，甚至删除不需要的表。</p>
+<p>MEMORY默认使用哈希索引。速度比使用B型树索引快。当然如果你想用B型树索引，可以在创建索引时指定。<code>create index mem_hash USING HASN on tab_memory (city_id)</code></p>
+<p>注意，MEMORY用到的很少，因为它是把数据存到内存中，如果内存出现异常就会影响数据。如果重启或者关机，所有数据都会消失。因此，基于MEMORY的表的生命周期很短，一般是一次性的。</p>
+<h3 id="MERGE"><a href="#MERGE" class="headerlink" title="MERGE"></a>MERGE</h3><p>MRG_MyISAM</p>
+<p>Merge表的优点：<br>A： 分离静态的和动态的数据<br>B：利用结构接近的的数据来优化查询<br>C:   查询时可以访问更少的数据<br>D：更容易维护大数据集<br>E: 可以通过修改.mrg文件来修改Merge表，当然也可以用alter进行修改，修改后要通过FLUSH TABLES刷新表缓存，此法可以动态增加减少子表</p>
+<p>创建方法，例：<br>mysql&gt;CREATE TABLE t1(a INT NOT NULL PRIMARY KEY)ENGINE=MyISAM;<br>mysql&gt;CREATE TABLE t2(a INT NOT NULL PRIMARY KEY)ENGINE=MyISAM;<br>mysql&gt;CREATE TABLE mrg(a INT NOT NULL PRIMARY KEY)ENGINE=MERGE UNION=(t1,t2)    INSERT_METHOD=LAST;</p>
+<p>对于merge表，需要注意的是<br>1。每个子表的结构必须一致，主表和子表的结构需要一致，<br>2。每个子表的索引在merge表中都会存在，所以在merge表中不能根据该索引进行唯一性检索。<br>3 子表需要是MyISAM引擎<br>4  REPLACE在merge表中不会工作<br>5  AUTO_INCREMENT 不会按照你所期望的方式工作。</p>
+<p>创建Mysql Merge表的参数 INSERT_METHOD有几个参数 。<br>LAST 如果你执行insert 指令来操作merge表时，插入操作会把数据添加到最后一个子表中。FIRST 同理，执行插入数据时会把数据添加到第一个子表中。</p>
+<h3 id="TokuDB"><a href="#TokuDB" class="headerlink" title="TokuDB"></a>TokuDB</h3><p>第三方存储引擎：</p>
+<ul>
+<li>列式存储引擎：Infobright</li>
+<li>高写性能、高压缩：TokuDB</li>
+</ul>
+<p>在MySQL最流行的支持全事务的引擎为INNODB。其特点是数据本身是用B-TREE来组织，数据本身即是庞大的根据主键聚簇的B-TREE索引。 所以在这点上，写入速度就会有些降低，因为要每次写入要用一次IO来做索引树的重排。特别是当数据量本身比内存大很多的情况下，CPU本身被磁盘IO纠缠的做不了其他事情了。这时我们要考虑如何减少对磁盘的IO来排解CPU的处境，常见的方法有：</p>
+<ul>
+<li>把INNODB 个PAGE增大（默认16KB），但增大也就带来了一些缺陷。 比如，对磁盘进行CHECKPOINT的时间将延后。</li>
+<li>把日志文件放到更快速的磁盘上，比如SSD。</li>
+</ul>
+<p>TokuDB 是一个支持事务的“新”引擎，有着出色的数据压缩功能，由美国 TokuTek 公司（现在已经被 Percona 公司收购）研发。拥有出色的数据压缩功能，如果您的数据写多读少，而且数据量比较大，强烈建议您使用TokuDB，以节省空间成本，并大幅度降低存储使用量和IOPS开销，不过相应的会增加 CPU 的压力。</p>
+<ul>
+<li>特性<ul>
+<li>使用Fractal树索引保证高效的插入性能</li>
+<li>优秀的压缩特性，比InnoDB高近10倍</li>
+<li>Hot Schema Changes特性支持在线创建索引和添加、删除属性列等DDL操作</li>
+<li>使用Bulk Loader达到快速加载大量数据</li>
+<li>提供了主从延迟消除技术</li>
+<li>支持ACID和MVCC</li>
+</ul>
+</li>
+<li>适用情景：<ul>
+<li>日志数据，因为日志通常插入频繁且存储量大</li>
+<li>历史数据，通常不会再有写操作，可以利用TokuDB的高压缩特性进行存储</li>
+<li>在线DDL较频繁的场景，使用TokuDB可以大大增加系统的可用性</li>
+</ul>
+</li>
+</ul>
+<p>TokuDB的优点:</p>
+<ul>
+<li>高压缩比，默认使用zlib进行压缩，尤其是对字符串(varchar,text等)类型有非常高的压缩比，比较适合存储日志、原始数据等。官方宣称可以达到1：12。</li>
+<li>在线添加索引，不影响读写操作</li>
+<li>HCADER 特性，支持在线字段增加、删除、扩展、重命名操作，（瞬间或秒级完成）</li>
+<li>支持完整的ACID特性和事务机制</li>
+<li>非常快的写入性能， Fractal-tree在事务实现上有优势,无undo log，官方称至少比innodb高9倍。</li>
+<li>支持show processlist 进度查看</li>
+<li>数据量可以扩展到几个TB；</li>
+<li>不会产生索引碎片；</li>
+<li>支持hot column addition,hot indexing,mvcc</li>
+</ul>
+<p>TokuDB缺点：</p>
+<ul>
+<li>不支持外键(foreign key)功能，如果您的表有外键，切换到 TokuDB引擎后，此约束将被忽略。</li>
+<li>TokuDB 不适大量读取的场景，因为压缩解压缩的原因。CPU占用会高2-3倍，但由于压缩后空间小，IO开销低，平均响应时间大概是2倍左右。</li>
+<li>online ddl 对text,blob等类型的字段不适用</li>
+<li>没有完善的热备工具，只能通过mysqldump进行逻辑备份</li>
+</ul>
+<h2 id="选择合适的存储引擎"><a href="#选择合适的存储引擎" class="headerlink" title="选择合适的存储引擎"></a>选择合适的存储引擎</h2><ul>
+<li>MyISAM：应用以读操作和插入操作为主，只有极少的更新和删除操作，且对事务完整性没有要求，没有并发写操作。OLTP环境中一般建议不要再使用MyISAM</li>
+<li>InnoDB：适用于事务完整性的较高要求，并发条件下数据一致性，很多的更新、删除操作；支持事务的完整提交和回滚</li>
+<li>MEMORY:所有数据保存在RAM，需要快速定位记录提供极快的访问速度；缺陷是大小有限制。通常用于更新不太频繁的小表</li>
+<li>MERGE：可以突破对单个MyISAM表大小的限制，通过将不同的表分布在不同的磁盘上，可以有效的改善MERGE表的访问效率。对数据仓储等VLDB环境很适合。</li>
+</ul>
+</div><div class="article-licensing box"><div class="licensing-title"><p>MySQL存储引擎</p><p><a href="https://violet-zky.github.io/2021/11/02/MySQL存储引擎/">https://violet-zky.github.io/2021/11/02/MySQL存储引擎/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><a href="https://violet-zky.github.io/"><p>xkxk</p></a></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2021-11-02</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2021-11-02</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="recommend-area"><div class="recommend-post"><span class="is-size-6 has-text-grey has-mr-7"># 相关文章</span><br><span>  1.<a class="is-size-6" href="/2021/09/07/Centos7%E4%B8%AD%E7%9A%84%E5%90%AF%E5%8A%A8MySQL%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" target="_blank">Centos7中的启动MySQL出现问题及解决方案</a><br></span></div></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135456.png" alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135550.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/10/26/VMware%E7%9A%84%E4%B8%89%E7%A7%8D%E7%BD%91%E5%8D%A1/"><span class="level-item">VMware的三种网卡</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--><div class="card"><div class="card-content"><div class="title is-5">评论</div><div id="comment-container"></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/gitalk/1.6.0/gitalk.css"><script> $.getScript('/js/gitalk.min.js', function () { 
+            var gitalk = new Gitalk({
+            language:'zh-CN',
+            id: '38b11b4a2db56b779db666e19edfb700',
+            repo: 'violet-zky.github.io',
+            owner: 'violet-zky',
+            clientID: '46a9f3481b46ea0129d8',
+            clientSecret: '79c7c9cb847e141757d7864453bcbf89f0655b24',
+            admin: ["violet-zky"],
+            createIssueManually: true,
+            distractionFreeMode: false,
+            perPage: 10,
+            pagerDirection: 'last',
+            proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
+            
+            enableHotKey: true,
+            isLocked: false
+        })
+        gitalk.render('comment-container')});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.png" alt="小凯のHome"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">小凯のHome</p><p class="is-size-6 is-block">尚未执佩剑，转眼即江湖</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>江苏</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">15</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">21</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/violet-zky"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/u/7253852899"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="/2652516133@qq.com"><i class="fa fa-envelope"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
+                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
+                                if(data){
+                                    $('#hitokoto').html("");
+                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
+                                    "<p>"+"来源《"+data.from+"》</p><p>提供者-"+data.creator+"</p>");
+                                }});}
+                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新评论</h3><span class="body_hot_comment">加载中，最新评论有1分钟缓存...</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-11-02T02:15:53.000Z">2021-11-02</time></p><p class="title"><a href="/2021/11/02/MySQL%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E/">MySQL存储引擎</a></p><p class="categories"><a href="/categories/DBA/">DBA</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-10-26T05:49:51.000Z">2021-10-26</time></p><p class="title"><a href="/2021/10/26/VMware%E7%9A%84%E4%B8%89%E7%A7%8D%E7%BD%91%E5%8D%A1/">VMware的三种网卡</a></p><p class="categories"><a href="/categories/%E8%BD%AC%E8%BD%BD/">转载</a> / <a href="/categories/%E8%BD%AC%E8%BD%BD/Linux/">Linux</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-10-04T10:45:07.000Z">2021-10-04</time></p><p class="title"><a href="/2021/10/04/git%E5%8F%8Agithub/">git及github</a></p><p class="categories"><a href="/categories/git/">git</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-10-04T10:09:38.000Z">2021-10-04</time></p><p class="title"><a href="/2021/10/04/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E6%88%98/">Docker技术入门与实战</a></p><p class="categories"><a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/">云计算</a> / <a href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/Docker/">Docker</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-10-01T13:18:54.000Z">2021-10-01</time></p><p class="title"><a href="/2021/10/01/%E5%88%86%E5%B8%83%E5%BC%8FHDFS%E7%9A%84%E9%85%8D%E7%BD%AE/">分布式HDFS的配置</a></p><p class="categories"><a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/">大数据</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/DBA/"><span class="level-start"><span class="level-item">DBA</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/LaTeX/"><span class="level-start"><span class="level-item">LaTeX</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/git/"><span class="level-start"><span class="level-item">git</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/"><span class="level-start"><span class="level-item">云计算</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/Docker/"><span class="level-start"><span class="level-item">Docker</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/%E9%98%BF%E9%87%8C%E4%BA%91/"><span class="level-start"><span class="level-item">阿里云</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"><span class="level-start"><span class="level-item">大数据</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E6%99%BA%E8%83%BD%E7%A7%91%E6%8A%80/"><span class="level-start"><span class="level-item">智能科技</span></span><span class="level-end"><span class="level-item tag">3</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E6%99%BA%E8%83%BD%E7%A7%91%E6%8A%80/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">数据开发</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"><span class="level-start"><span class="level-item">编程语言</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"></ul></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/10/"><span class="level-start"><span class="level-item">十月 2021</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/09/"><span class="level-start"><span class="level-item">九月 2021</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/08/"><span class="level-start"><span class="level-item">八月 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/07/"><span class="level-start"><span class="level-item">七月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E6%95%99%E7%A8%8B/"><span class="tag">教程</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MySQL/"><span class="tag">MySQL</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="tag">深度学习</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AC%E8%BD%BD/"><span class="tag">转载</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CNN/"><span class="tag">CNN</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ECS/"><span class="tag">ECS</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FTP/"><span class="tag">FTP</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hadoop/"><span class="tag">Hadoop</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LaTeX/"><span class="tag">LaTeX</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/python/"><span class="tag">python</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/shell/"><span class="tag">shell</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%85%A5%E9%97%A8/"><span class="tag">入门</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"><span class="tag">前馈神经网络</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/"><span class="tag">技巧</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"><span class="tag">数据挖掘</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"><span class="tag">网络安全</span><span class="tag is-grey-lightest">1</span></a></div></div><div class="field is-grouped is-grouped-multiline"><a class="tags has-addons" href="/tags/"><span class="tag">查看全部&gt;&gt;</span></a></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">小凯のHome</a><p class="size-small"><span>&copy; 2021 xkxk</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
+            var n = new Date(time);
+            now.setTime(now.getTime() + 250),
+                days = (now - n) / 1e3 / 60 / 60 / 24,
+                dnum = Math.floor(days),
+                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
+                hnum = Math.floor(hours),
+            1 == String(hnum).length && (hnum = "0" + hnum),
+                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+                mnum = Math.floor(minutes),
+            1 == String(mnum).length && (mnum = "0" + mnum),
+                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+                snum = Math.round(seconds),
+            1 == String(snum).length && (snum = "0" + snum),
+                document.getElementById("statistic-times").innerHTML = "❤️本站自 <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> 已运行 <strong>" + dnum + "</strong> 天 <strong>" + hnum + "</strong> 小时 <strong>" + mnum + "</strong> 分 <strong>" + snum + "</strong> 秒！❤️";
+        }var now = new Date();setInterval("createTime('2021/1/6 6:6:6')", 250,"");</script><br></span><div class="size-small"><span>❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临！❤️</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a></p></div><div class="sideMusic"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="/js/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="2364053447" theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting" lrctype="0" list-max-height="400px" fixed="true"></meting-js></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script>$.getScript('/js/comment-issue-data.js',function(){loadIssueData('46a9f3481b46ea0129d8','79c7c9cb847e141757d7864453bcbf89f0655b24','violet-zky','violet-zky.github.io',false);})</script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        function loadMathJax() { //加载mathjax
+            $.getScript("//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML", function () {
+                MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$'], ['\(', '\)']] } });
+                var math = document.getElementsByClassName("entry-content")[0];
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, math]);
+            });
+        };
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(true){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('46a9f3481b46ea0129d8','79c7c9cb847e141757d7864453bcbf89f0655b24','violet-zky','violet-zky.github.io',false);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>
