@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>测试理论 - 小凯のHome</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="小凯のHome"><meta name="msapplication-TileImage" content="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/favicon.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="小凯のHome"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="概念测试原则：  测试证明软件存在缺陷 不能执行穷尽测试 缺陷存在群集现象 某些测试需要依赖特殊的环境 测试应尽早介入 杀虫剂现象：同样的一个测试用例不能重复执行多次，软件会对它产生免疫 不存在缺陷谬论：任何软件都不会是完美的  软件三部分：  功能集合 使用说明书 配置数据  测试对象：  需求分析阶段：各种需求规格说明书 软件架构设计：API接口文档 编码实现阶段：源代码（白盒测试、单元测试）"><meta property="og:type" content="blog"><meta property="og:title" content="测试理论"><meta property="og:url" content="https://violet-zky.github.io/"><meta property="og:site_name" content="小凯のHome"><meta property="og:description" content="概念测试原则：  测试证明软件存在缺陷 不能执行穷尽测试 缺陷存在群集现象 某些测试需要依赖特殊的环境 测试应尽早介入 杀虫剂现象：同样的一个测试用例不能重复执行多次，软件会对它产生免疫 不存在缺陷谬论：任何软件都不会是完美的  软件三部分：  功能集合 使用说明书 配置数据  测试对象：  需求分析阶段：各种需求规格说明书 软件架构设计：API接口文档 编码实现阶段：源代码（白盒测试、单元测试）"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="c:/Users/zky666/AppData/Roaming/Typora/typora-user-images/image-20210724104847224.png"><meta property="article:published_time" content="2022-01-28T01:12:45.000Z"><meta property="article:modified_time" content="2022-01-28T08:11:09.691Z"><meta property="article:author" content="xkxk"><meta property="article:tag" content="测试"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="C:\Users\zky666\AppData\Roaming\Typora\typora-user-images\image-20210724104847224.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://violet-zky.github.io/2022/01/28/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%A6%82%E5%BF%B5/"},"headline":"小凯のHome","image":["https://img2018.cnblogs.com/blog/1389184/201810/1389184-20181026200202435-1922866335.png"],"datePublished":"2022-01-28T01:12:45.000Z","dateModified":"2022-01-28T08:11:09.691Z","author":{"@type":"Person","name":"xkxk"},"description":"概念测试原则：  测试证明软件存在缺陷 不能执行穷尽测试 缺陷存在群集现象 某些测试需要依赖特殊的环境 测试应尽早介入 杀虫剂现象：同样的一个测试用例不能重复执行多次，软件会对它产生免疫 不存在缺陷谬论：任何软件都不会是完美的  软件三部分：  功能集合 使用说明书 配置数据  测试对象：  需求分析阶段：各种需求规格说明书 软件架构设计：API接口文档 编码实现阶段：源代码（白盒测试、单元测试）"}</script><link rel="canonical" href="https://violet-zky.github.io/2022/01/28/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%A6%82%E5%BF%B5/"><link rel="icon" href="https://cdn.jsdelivr.net/gh/removeif/removeif-demo@latest/img/favicon.png"><meta name="referrer" content="no-referrer-when-downgrade"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/highlight.js/9.12.0/styles/atom-one-light.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/font-awesome/5.12.0/css/all.min.css"><link rel="stylesheet" href="https://fonts.loli.net/css?family=Ubuntu:400,600|Source+Code+Pro|Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&amp;amp;subset=latin,latin-ext|Inconsolata|Itim|Lobster.css"><script src="https://cdnjs.loli.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script><script src="/js/globalUtils.js"></script><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/pace/1.0.2/pace.min.js"></script><link rel="stylesheet" href="/live2d/waifu.css"><script type="text/javascript" async src="/live2d/autoload.js"></script><meta name="generator" content="Hexo 5.4.0"></head><body class="is-3-column has-navbar-fixed-top"><nav class="navbar navbar-main is-fixed-top"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/">小凯のHome</a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/messages">留言</a><a class="navbar-item" href="/music">影音</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Join Gitter" href="https://gitter.im/hexo-theme-amazing/community"><i class="fab fa-gitter"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a><a class="navbar-item" id="night-nav" title="Night Mode" href="javascript:;"><i class="fas fa-moon" id="night-icon"></i></a></div></div></div></nav><script type="text/javascript" src="/js/theme-setting.js"></script><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-9-widescreen"><!--!--><div class="card"><article class="card-content article" role="article"><div class="article-meta size-small is-uppercase level is-mobile"><div class="level-left"><i class="far fa-calendar-plus"> </i>2022-01-28  <a class="commentCountImg" href="/2022/01/28/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%A6%82%E5%BF%B5/#comment-container"><span class="display-none-class">c5750ff02e9bcfd96333c3077b6033df</span><i class="far fa-comment-dots"></i> <span class="commentCount" id="c5750ff02e9bcfd96333c3077b6033df">99+</span>  </a><span class="level-item"><i class="far fa-clock"> </i>21 分钟  <i class="fas fa-pencil-alt"> </i>3.2 k</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">测试理论</h1><div class="content"><h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p><strong>测试原则</strong>：</p>
+<ol>
+<li>测试证明软件存在缺陷</li>
+<li>不能执行穷尽测试</li>
+<li>缺陷存在群集现象</li>
+<li>某些测试需要依赖特殊的环境</li>
+<li>测试应尽早介入</li>
+<li>杀虫剂现象：同样的一个测试用例不能重复执行多次，软件会对它产生免疫</li>
+<li>不存在缺陷谬论：任何软件都不会是完美的</li>
+</ol>
+<p><strong>软件三部分</strong>：</p>
+<ol>
+<li>功能集合</li>
+<li>使用说明书</li>
+<li>配置数据</li>
+</ol>
+<p><strong>测试对象</strong>：</p>
+<ol>
+<li>需求分析阶段：各种需求规格说明书</li>
+<li>软件架构设计：API接口文档</li>
+<li>编码实现阶段：源代码（白盒测试、单元测试）</li>
+<li>系统功能使用：软件功能主体（当前行业最多）</li>
+</ol>
+<p><strong>测试级别</strong>：</p>
+<ol>
+<li><p>单元测试[UT] 组成软件最小的低层代码结构</p>
+<p>(类、函数、组件)    unit test</p>
+</li>
+<li><p>集成测试[IT]   多个单元模块组合一起，验证之间沟通的桥梁能否正常工作(接口测试)   system ingertation test</p>
+</li>
+<li><p>系统测试[ST]  测试人员充当用户测试软件功能主体    system test</p>
+<ul>
+<li>功能测试  软件主体功能是否可用</li>
+<li>兼容性测试  在不同的环境下是否还可以使用</li>
+<li>安全测试  是否只是能授权用户提供功能使用</li>
+<li>性能测试  相当于当前软件消耗的资源 产出能力</li>
+</ul>
+</li>
+<li><p>验证测试：</p>
+<ul>
+<li>α测试    –    内测</li>
+<li>β测试    –    公测</li>
+<li>γ测试    –    软件版本正式发行的候选版</li>
+<li>UAT[ user acceptance test ]测试   –  由客户派出对于业务非常精通的人员来使用该软件，从而对功能进行测试</li>
+</ul>
+</li>
+</ol>
+<p><strong>常用的系统测试方法</strong></p>
+<ul>
+<li>按测试对象分类<ol>
+<li>白盒测试</li>
+<li>黑盒测试</li>
+<li>灰盒测试    接口测试</li>
+</ol>
+</li>
+<li>按测试对象是否执行<ol>
+<li>静态测试    测试不执行  </li>
+<li>动态测试    将软件在真实使用环境进行测试</li>
+</ol>
+</li>
+<li>按测试手段进行分类<ol>
+<li>手工测试    测试人员手动对被测对象进行验证，测试操作及环境改变灵活</li>
+<li>自动化测试   ·自己写脚本  ·第三方工具</li>
+</ol>
+</li>
+</ul>
+<p><strong>软件质量</strong></p>
+<ol>
+<li>功能性：软件需要满足用户显式或者稳式的功能</li>
+<li>易用性：软件易于学习和上手使用</li>
+<li>可靠性：软件必须实现需求当中指明的具体功能</li>
+<li>效率性：类似于软件的性能</li>
+<li>可维护性：软件具有将某个功能修复之后继续使用的能力</li>
+<li>可移植性：可以从一个平台移植到另一个平台上去的能力</li>
+</ol>
+<p><strong>软件测试流程</strong></p>
+<ol>
+<li><p>需求分析</p>
+<ul>
+<li>当前阶段的核心目的就是梳理清楚我们需要设计的点是什么</li>
+<li>需求的来源：需求规格说明书、API文档、竞品分析</li>
+</ul>
+</li>
+<li><p>设计用例：</p>
+<ul>
+<li>用例就是用户为了测试软件的某个功能而执行的操作过程</li>
+<li>设计用例是有方法的（等价类、边界值、判定表…）</li>
+</ul>
+</li>
+<li><p>评审用例：对当前的用例进行添加或删除</p>
+</li>
+<li><p>配置环境：</p>
+<ul>
+<li>环境：当前被测对象运行所需要的执行环境[有一键安装的集成环境]</li>
+<li>环境分类：操作系统 + 服务器软件 + 数据库 + 软件低层代码的执行环境</li>
+</ul>
+</li>
+<li><p>执行用例</p>
+<ul>
+<li>冒烟测试，快速的对当前软件的核心功能或主体执行流程进行验证，有问题将此版本回退给开发</li>
+<li>冒烟测试通过再开展全面的测试</li>
+</ul>
+</li>
+<li><p>回归测试及缺陷跟踪</p>
+<ul>
+<li>回归测试指的就是当我们将某个缺陷提交给开发之后，由它们进行修复，修复完成后需要测试人员再次对其进行测试</li>
+<li>缺陷跟踪：指的是当测试人员发现某个缺陷之后需要一直对其进行状态的跟踪</li>
+</ul>
+</li>
+<li><p>输出测试报告  产生的数据进行可视化输出</p>
+</li>
+<li><p>测试结束  将整个测试过程中产生的一些文档整理归纳，方便后续版本使用</p>
+</li>
+</ol>
+<h1 id="开发模型"><a href="#开发模型" class="headerlink" title="开发模型"></a>开发模型</h1><p>###瀑布模型</p>
+<p><img src="https://img2.baidu.com/it/u=12041761,2880685001&fm=253&fmt=auto&app=138&f=JPEG?w=427&h=240" alt="img"></p>
+<p>说明：</p>
+<ol>
+<li>线性模型的一种，在所有模型中占有重要地位，是所有模型的一个基础</li>
+<li>每个阶段执行一次，按线性顺序进行软件开发</li>
+</ol>
+<p>测试的切入点：</p>
+<p>​    - 测试阶段处于软件实现后，必须在代码完成后留出足够的时间给测试活动</p>
+<ul>
+<li>优点：<ul>
+<li>开发的各个阶段比较清晰</li>
+<li>强调早期计划及需求调查</li>
+<li>适合需求稳定的产品开发</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>依赖于早期的需求调查，不适应需求的变化</li>
+<li>单一流程不可逆</li>
+<li>风险往往延至后期才暴露，失去及早纠正的机会</li>
+<li>问题在项目后期才开始暴露</li>
+<li>前面未发现的错误会传递并扩散到后面的阶段，可能导致项目失败</li>
+<li>新产品不太适合</li>
+</ul>
+</li>
+<li>改良：<ul>
+<li>沿用瀑布模型的线性思想，细化各个阶段，在某些重要关注的阶段之间掺入迭代的思想</li>
+</ul>
+</li>
+</ul>
+<h3 id="快速原形模型"><a href="#快速原形模型" class="headerlink" title="快速原形模型"></a>快速原形模型</h3><p><img src="https://img-blog.csdnimg.cn/20190726073429663.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3pqdXd4eA==,size_16,color_FFFFFF,t_70" alt="img"></p>
+<p>在开发真实系统之前，构造一个原型，在原型的基础上，逐渐完成整个系统的开发工作</p>
+<p>第一步是建造一个快速原型，实现用户与系统的交互，用户对原型进行评价，进一步细化待开发软件的需求。通过逐步调整原型使其满足用户的要求，开发人员可以确定用户的真正需求是什么</p>
+<p>第二步是在第一步的基础上开发出用户满意的软件产品</p>
+<ul>
+<li>优点：<ul>
+<li>克服瀑布模型的缺点，更好地满足用户的需求并减少由于软件需求不明确带来的项目开发风险。适合预先不能确切定义需求的软件系统的开发</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>不适合大型系统的开发（适合开发小型的、灵活性高的系统）。前提是要有一个展示性的产品原型，因此在一定程度上可能会限制开发人员的创新</li>
+</ul>
+</li>
+</ul>
+<h2 id="螺旋模型"><a href="#螺旋模型" class="headerlink" title="螺旋模型"></a>螺旋模型</h2><p>将开发过程分为几个螺旋周期，每个螺旋周期大致和瀑布模型相符合</p>
+<ul>
+<li>优点：<ul>
+<li>螺旋模型很大程度上是一种风险驱动的方法体系，因为在每个阶段之前及经常发生的循环之前，都必须首先进行风险评估</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>采用螺旋模型需要具有相当丰富的风险评估经验和专门的知识，在风险较大的项目开发中，如果未能及时标识风险，势必造成重大损失。过多的迭代次数会增加开发成本，延迟提交的时间</li>
+</ul>
+</li>
+</ul>
+<h1 id="软件测试模型"><a href="#软件测试模型" class="headerlink" title="软件测试模型"></a>软件测试模型</h1><h2 id="V模型"><a href="#V模型" class="headerlink" title="V模型"></a>V模型</h2><p><img src="https://img-blog.csdnimg.cn/20190506174441246.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU3MzUzNA==,size_16,color_FFFFFF,t_70" alt="img"></p>
+<ul>
+<li>优点：<ul>
+<li>包含了底层测试(单元测试)和高层测试(系统测试)；清楚的标识了开发和测试的各个阶段；自上而下逐步求精，每个阶段分工明确，便于整体项目的把控</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>自上而下的顺序导致了，测试工作在编码之后，就导致错误不能及时的进行修改；实际工作中，需求经常变化，导致v模型步骤，反复执行，返工量很大，灵活度较低</li>
+</ul>
+</li>
+<li>改良：<ul>
+<li>每个步骤都可以进行小的迭代工作</li>
+</ul>
+</li>
+</ul>
+<h2 id="W模型"><a href="#W模型" class="headerlink" title="W模型"></a>W模型</h2><p><img src="https://img-blog.csdnimg.cn/20190506180516154.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU3MzUzNA==,size_16,color_FFFFFF,t_70" alt="img"></p>
+<ul>
+<li>优点：<ul>
+<li>开发强调测试伴随着整个软件开发周期，而且测试的对象不仅仅是程序，需求和概要设计同样要测试</li>
+<li>更早地接入测试，可以发现开发初期的缺陷，那么可以用更加低的成本进行缺陷修复</li>
+<li>同样是分阶段的工作，便于控制项目过程</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>依赖于软件开发和软件测试依然保持一前一后的线性关系，依然无法支持迭代、自发性和需求等变更调整；</li>
+<li>对于当前很多项目，在执行的过程中根本不产生文档，那么W模型基本无法适用</li>
+<li>使用起来技术复杂度很高，对于需求和设计的测试要求很高，实践起来困难</li>
+</ul>
+</li>
+</ul>
+<h2 id="H模型"><a href="#H模型" class="headerlink" title="H模型"></a>H模型</h2><p><img src="https://img2018.cnblogs.com/blog/1389184/201810/1389184-20181026200202435-1922866335.png" alt="img"></p>
+<ul>
+<li>测试流程：<ul>
+<li>测试准备：所有测试执行活动的准备判断是否到测试就绪点</li>
+<li>测试就绪点：测试准入准则，即是否可以开始执行测试的条件</li>
+<li>测试执行：具体的执行测试的程序</li>
+</ul>
+</li>
+<li>其他流程：<ul>
+<li>具体开发中的流程，如：设计流程</li>
+</ul>
+</li>
+<li>优点：<ul>
+<li>揭示了软件测试除测试执行外，还有很多工作；</li>
+<li>软件测试完全独立，贯穿整个生命周期，且与其他流程并发进行；</li>
+<li>软件测试活动可以尽早准备、尽早执行，具有很强的灵活性</li>
+<li>软件测试可以根据被测物的不同而分层次、分阶段、分次序的执行，同时也是可以被迭代的</li>
+</ul>
+</li>
+<li>缺点：<ul>
+<li>管理型要求高:由于模型很灵活，必须要定义清晰的规划和管理制度，否则测试过程将非常难以管理和控制</li>
+<li>技能要求高：H模型要求能够很好的定义每个迭代的规模，不能太大也不能太小</li>
+<li>测试就绪点分析困难：测试很多时候，并不知道测试准备到什么时候是合适的，就绪点在哪里，就绪点的标准是什么，这就对后续的测试执行的启动带来很多困难</li>
+<li>对于整个项目组的人员要求非常高：在很好的规划制度下，大家都能高效的工作，否则容易混乱。例如：分了一个小的迭代，但是因为人员技能不足，无效完成，那么整个项目就会受到很大的干扰。</li>
+</ul>
+</li>
+</ul>
+<h2 id="黑盒测试"><a href="#黑盒测试" class="headerlink" title="黑盒测试"></a>黑盒测试</h2><ul>
+<li><p>能发现的错误</p>
+<ul>
+<li>功能不对或功能遗漏</li>
+<li>界面错误</li>
+<li>数据库访问或者处理错误</li>
+<li>性能问题</li>
+</ul>
+</li>
+<li><p>功能测试</p>
+<ul>
+<li>逻辑功能测试</li>
+<li>界面测试</li>
+<li>易用性测试</li>
+<li>安装测试</li>
+<li>兼容性测试</li>
+</ul>
+</li>
+<li><p>性能测试</p>
+<ul>
+<li><p>时间性能</p>
+</li>
+<li><p>空间性能</p>
+</li>
+<li><p>一般性能测试</p>
+</li>
+<li><p>稳定性测试</p>
+</li>
+<li><p>负载测试</p>
+</li>
+<li><p>压力测试</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>其他</p>
+<p>回归测试、冒烟测试、随机测试、验收测试</p>
+<h1 id="测试方法"><a href="#测试方法" class="headerlink" title="测试方法"></a>测试方法</h1><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/TomBombadil/p/11122315.html">黑盒测试方法（全）</a></p>
+<h2 id="等价类划分法"><a href="#等价类划分法" class="headerlink" title="等价类划分法"></a>等价类划分法</h2><p>用户所有可能输入的数据，划分成若干份（子集），然后从每一个子集当中选取少数具有代表性的数据作为测试用例</p>
+<ol>
+<li>文本框要求输入的长度</li>
+<li>输入的类型</li>
+<li>组成规则</li>
+<li>是否为空</li>
+<li>是否重复—区分大小写</li>
+<li>是否去除空格</li>
+</ol>
+<h2 id="边界值"><a href="#边界值" class="headerlink" title="边界值"></a>边界值</h2><p>上点：就是指得边界上得点，开区间的话，上点就是在域外，闭区间得话，上点就是在域内。</p>
+<p>离点：指得就是离上点最近得点，如果是开区间，那么离点就在域内，如果是闭区间，那么离点就在域外。</p>
+<p>内点：域内得任意点都是内点。</p>
+<p><img src="https://iknow-pic.cdn.bcebos.com/267f9e2f070828383bbf0e9eb699a9014d08f18e?x-bce-process=image/resize,m_lfit,w_600,h_800,limit_1/quality,q_85/format,f_jpg" alt="img"></p>
+<p>边界值的取值需要把上点值、离点值和内点值取到</p>
+<h2 id="因果图法"><a href="#因果图法" class="headerlink" title="因果图法"></a>因果图法</h2></div><div class="article-licensing box"><div class="licensing-title"><p>测试理论</p><p><a href="https://violet-zky.github.io/2022/01/28/软件测试概念/">https://violet-zky.github.io/2022/01/28/软件测试概念/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><a href="https://violet-zky.github.io"><p>xkxk</p></a></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2022-01-28</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2022-01-28</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a class="icon" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a><a class="icon" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="recommend-area"></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/css/share.min.css"><div class="social-share"></div><script src="https://cdnjs.loli.net/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script></article></div><div class="card"><div class="card-content"><h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3><div class="buttons is-centered"><a class="button donate" data-type="alipay"><span class="icon is-small"><i class="fab fa-alipay"></i></span><span>支付宝</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135456.png" alt="支付宝"></span></a><a class="button donate" data-type="wechat"><span class="icon is-small"><i class="fab fa-weixin"></i></span><span>微信</span><span class="qrcode"><img src="https://raw.githubusercontent.com/removeif/blog_image/master/img/2019/20190802135550.png" alt="微信"></span></a></div></div></div><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/01/27/%E5%88%A9%E7%94%A8Monkey%E8%BF%9B%E8%A1%8CAPP%E6%B5%8B%E8%AF%95/"><span class="level-item">利用Monkey进行APP测试</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--><div class="card"><div class="card-content"><div class="title is-5">评论</div><div id="comment-container"></div><link rel="stylesheet" href="https://cdnjs.loli.net/ajax/libs/gitalk/1.6.0/gitalk.css"><script> $.getScript('/js/gitalk.min.js', function () { 
+            var gitalk = new Gitalk({
+            language:'zh-CN',
+            id: 'c5750ff02e9bcfd96333c3077b6033df',
+            repo: 'violet-zky.github.io',
+            owner: 'violet-zky',
+            clientID: '46a9f3481b46ea0129d8',
+            clientSecret: '79c7c9cb847e141757d7864453bcbf89f0655b24',
+            admin: ["violet-zky"],
+            createIssueManually: true,
+            distractionFreeMode: false,
+            perPage: 10,
+            pagerDirection: 'last',
+            proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token',
+            
+            enableHotKey: true,
+            isLocked: false
+        })
+        gitalk.render('comment-container')});</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1 is-sticky"><!--!--><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar is-rounded" src="/img/avatar.png" alt="小凯のHome"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">小凯のHome</p><p class="is-size-6 is-block">尚未执佩剑，转眼即江湖</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>江苏</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">24</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">25</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">31</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">关注我</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/violet-zky"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Weibo" href="https://weibo.com/u/7253852899"><i class="fab fa-weibo"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Email" href="/2652516133@qq.com"><i class="fa fa-envelope"></i></a></div><div><hr><p id="hitokoto">:D 一言句子获取中...</p><script type="text/javascript" defer>function getYiyan(){
+                                $.getJSON("https://v1.hitokoto.cn/", function (data) {
+                                if(data){
+                                    $('#hitokoto').html("");
+                                    $('#hitokoto').append("<strong style='color: #3273dc;'>"+data.hitokoto+"</strong>"+
+                                    "<p>"+"来源《"+data.from+"》</p><p>提供者-"+data.creator+"</p>");
+                                }});}
+                                $(function (){getYiyan();$('#hitokoto').click(function(){getYiyan();})});</script></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">链接</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新评论</h3><span class="body_hot_comment">加载中，最新评论有1分钟缓存...</span></div></div><div class="card widget"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-01-28T01:12:45.000Z">2022-01-28</time></p><p class="title"><a href="/2022/01/28/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E6%A6%82%E5%BF%B5/">测试理论</a></p><p class="categories"><a href="/categories/%E6%B5%8B%E8%AF%95/">测试</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-01-27T08:58:03.000Z">2022-01-27</time></p><p class="title"><a href="/2022/01/27/%E5%88%A9%E7%94%A8Monkey%E8%BF%9B%E8%A1%8CAPP%E6%B5%8B%E8%AF%95/">利用Monkey进行APP测试</a></p><p class="categories"><a href="/categories/%E6%B5%8B%E8%AF%95/">测试</a> / <a href="/categories/%E6%B5%8B%E8%AF%95/%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95/">黑盒测试</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-01-26T01:16:23.000Z">2022-01-26</time></p><p class="title"><a href="/2022/01/26/Nginx%E7%BC%93%E5%AD%98%E4%B8%8E%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/">Nginx缓存与负载均衡</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-01-25T01:08:16.000Z">2022-01-25</time></p><p class="title"><a href="/2022/01/25/nginx/">nginx</a></p><p class="categories"><a href="/categories/Nginx/">Nginx</a> / <a href="/categories/Nginx/Linux/">Linux</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2022-01-24T03:09:28.000Z">2022-01-24</time></p><p class="title"><a href="/2022/01/24/day2%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">30天自制操作系统day2汇编语言</a></p><p class="categories"><a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">操作系统</a> / <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/">汇编语言</a></p></div></article></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/categories/DBA/"><span class="level-start"><span class="level-item">DBA</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/HCIA/"><span class="level-start"><span class="level-item">HCIA</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/HCIA/RS/"><span class="level-start"><span class="level-item">RS</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/LaTeX/"><span class="level-start"><span class="level-item">LaTeX</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/Nginx/"><span class="level-start"><span class="level-item">Nginx</span></span><span class="level-end"><span class="level-item tag">1</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/Nginx/Linux/"><span class="level-start"><span class="level-item">Linux</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><li><a class="level is-mobile is-marginless" href="/categories/git/"><span class="level-start"><span class="level-item">git</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/"><span class="level-start"><span class="level-item">云计算</span></span><span class="level-end"><span class="level-item tag">2</span></span></a><ul class="mr-0"><li><a class="level is-mobile is-marginless" href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/Docker/"><span class="level-start"><span class="level-item">Docker</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/categories/%E4%BA%91%E8%AE%A1%E7%AE%97/%E9%98%BF%E9%87%8C%E4%BA%91/"><span class="level-start"><span class="level-item">阿里云</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></li><a class="level is-mobile is-marginless" href="/categories/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile is-marginless" href="/archives/2022/01/"><span class="level-start"><span class="level-item">一月 2022</span></span><span class="level-end"><span class="level-item tag">5</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/12/"><span class="level-start"><span class="level-item">十二月 2021</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/11/"><span class="level-start"><span class="level-item">十一月 2021</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/10/"><span class="level-start"><span class="level-item">十月 2021</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile is-marginless" href="/archives/2021/09/"><span class="level-start"><span class="level-item">九月 2021</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><a class="level is-mobile is-marginless" href="/archives/"><span class="level-start"><span class="level-item">查看全部&gt;&gt;</span></span></a></ul></div></div></div><div class="card widget"><div class="card-content"><div class="menu"><h3 class="menu-label">标签</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/%E6%95%99%E7%A8%8B/"><span class="tag">教程</span><span class="tag is-grey-lightest">5</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Linux/"><span class="tag">Linux</span><span class="tag is-grey-lightest">4</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E8%BD%AC%E8%BD%BD/"><span class="tag">转载</span><span class="tag is-grey-lightest">3</span></a></div><div class="control"><a class="tags has-addons" href="/tags/MySQL/"><span class="tag">MySQL</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%8A%80%E5%B7%A7/"><span class="tag">技巧</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="tag">数据库</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/"><span class="tag">数据挖掘</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B5%8B%E8%AF%95/"><span class="tag">测试</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="tag">深度学习</span><span class="tag is-grey-lightest">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/APP%E6%B5%8B%E8%AF%95/"><span class="tag">APP测试</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/CNN/"><span class="tag">CNN</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Docker/"><span class="tag">Docker</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/ECS/"><span class="tag">ECS</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/FTP/"><span class="tag">FTP</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Hadoop/"><span class="tag">Hadoop</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/LaTeX/"><span class="tag">LaTeX</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/Nginx/"><span class="tag">Nginx</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/RS/"><span class="tag">RS</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/git/"><span class="tag">git</span><span class="tag is-grey-lightest">1</span></a></div><div class="control"><a class="tags has-addons" href="/tags/python/"><span class="tag">python</span><span class="tag is-grey-lightest">1</span></a></div></div><div class="field is-grouped is-grouped-multiline"><a class="tags has-addons" href="/tags/"><span class="tag">查看全部&gt;&gt;</span></a></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><!--!--><div class="column-right-shadow is-hidden-widescreen"></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/">小凯のHome</a><p class="size-small"><span>&copy; 2022 xkxk</span>  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a> &amp; <a href="https://github.com/removeif/hexo-theme-amazing" target="_blank">Amazing</a> <br><span>© 版权说明：[本网站所有内容均收集于互联网或自己创作,<br />&nbsp;&nbsp;&nbsp;&nbsp;方便于网友与自己学习交流，如有侵权，请<a href="/message" target="_blank">留言</a>，立即处理]<br /></span><span><span id="statistic-times">loading...</span><script>function createTime(time) {
+            var n = new Date(time);
+            now.setTime(now.getTime() + 250),
+                days = (now - n) / 1e3 / 60 / 60 / 24,
+                dnum = Math.floor(days),
+                hours = (now - n) / 1e3 / 60 / 60 - 24 * dnum,
+                hnum = Math.floor(hours),
+            1 == String(hnum).length && (hnum = "0" + hnum),
+                minutes = (now - n) / 1e3 / 60 - 1440 * dnum - 60 * hnum,
+                mnum = Math.floor(minutes),
+            1 == String(mnum).length && (mnum = "0" + mnum),
+                seconds = (now - n) / 1e3 - 86400 * dnum - 3600 * hnum - 60 * mnum,
+                snum = Math.round(seconds),
+            1 == String(snum).length && (snum = "0" + snum),
+                document.getElementById("statistic-times").innerHTML = "❤️本站自 <strong>"+time.split(" ")[0].replace(/\//g,".")+"</strong> 已运行 <strong>" + dnum + "</strong> 天 <strong>" + hnum + "</strong> 小时 <strong>" + mnum + "</strong> 分 <strong>" + snum + "</strong> 秒！❤️";
+        }var now = new Date();setInterval("createTime('2021/1/6 6:6:6')", 250,"");</script><br></span><div class="size-small"><span>❤️感谢 <strong><span id="busuanzi_value_site_uv">99+</span></strong> 小伙伴的 <strong><span id="busuanzi_value_site_pv">99+</span></strong> 次光临！❤️</span></div></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/removeif/hexo-theme-amazing"><i class="fab fa-github"></i></a></p></div><div class="sideMusic"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="/js/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script><meting-js style="width: auto;height: 2000px;" server="netease" type="playlist" id="2364053447" theme="#2980b9" loop="all" autoplay="false" order="list" storageName="aplayer-setting" lrctype="0" list-max-height="400px" fixed="true"></meting-js></div></div></div></div></footer><script src="https://cdnjs.loli.net/ajax/libs/moment.js/2.22.2/moment-with-locales.min.js"></script><script src="https://cdnjs.loli.net/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script><script>moment.locale("zh-CN");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdnjs.loli.net/ajax/libs/lightgallery/1.6.8/js/lightgallery.min.js" defer></script><script src="https://cdnjs.loli.net/ajax/libs/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script>$.getScript('/js/comment-issue-data.js',function(){loadIssueData('46a9f3481b46ea0129d8','79c7c9cb847e141757d7864453bcbf89f0655b24','violet-zky','violet-zky.github.io',false);})</script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script><script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.js"></script><script type="text/javascript">var pjax = new Pjax({
+            elements: "a",//代表点击链接就更新
+            selectors: [  //代表要更新的节点
+                ".section",
+                "title"
+            ],
+            cache: true,
+            cacheBust:false
+        })
+
+        function loadBusuanzi(){
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js", function () {});
+        }
+
+        function loadMathJax() { //加载mathjax
+            $.getScript("//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML", function () {
+                MathJax.Hub.Config({ tex2jax: { inlineMath: [['$', '$'], ['\(', '\)']] } });
+                var math = document.getElementsByClassName("entry-content")[0];
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, math]);
+            });
+        };
+
+        // 开始 PJAX 执行的函数
+        document.addEventListener('pjax:send', function () {
+        });
+        
+        // PJAX 完成之后执行的函数，可以和上面的重载放在一起
+        document.addEventListener('pjax:complete', function () {
+            $(".section").css({opacity:1});
+            if(true){
+                $.getScript('/js/comment-issue-data.js',function(){loadIssueData('46a9f3481b46ea0129d8','79c7c9cb847e141757d7864453bcbf89f0655b24','violet-zky','violet-zky.github.io',false);});
+            }
+            if(false){
+                loadMathJax();
+            }
+            loadMainJs(jQuery, window.moment, window.ClipboardJS, window.IcarusThemeSettings);
+            loadBackTop();
+            loadBusuanzi();
+            if(typeof loadBanner == 'function'){
+                loadBanner();
+            }
+        });</script></body></html>
